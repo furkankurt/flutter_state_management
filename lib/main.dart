@@ -2,16 +2,23 @@ import 'package:flutter/material.dart';
 import 'package:flutter_state/provider_package_kullanimi.dart';
 import 'package:flutter_state/sayac.dart';
 import 'package:provider/provider.dart';
-
 import 'firebaseauth_provider.dart';
+import 'user_repository.dart';
 
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider<Sayac>(
-      builder: (context) => Sayac(1),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider<Sayac>(
+          builder: (context) => Sayac(0),
+        ),
+        ChangeNotifierProvider<UserRepository>(
+          builder: (context) => UserRepository(),
+        ),
+      ],
       child: MaterialApp(
         title: 'Flutter Demo',
         theme: ThemeData(
@@ -21,6 +28,23 @@ class MyApp extends StatelessWidget {
       ),
     );
   }
+
+  /*@override
+  Widget build(BuildContext context) {
+    return ChangeNotifierProvider<Sayac>(
+      builder: (context) => Sayac(1),
+      child: ChangeNotifierProvider<UserRepository>(
+        builder: (context)=>UserRepository(),
+        child: MaterialApp(
+          title: 'Flutter Demo',
+          theme: ThemeData(
+            primarySwatch: Colors.blue,
+          ),
+          home: MyHomePage(title: 'Flutter Demo Home Page'),
+        ),
+      ),
+    );
+  }*/
 }
 
 class MyHomePage extends StatefulWidget {
