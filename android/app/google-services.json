@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "184306668034",
+    "firebase_url": "https://providerkullanimi.firebaseio.com",
+    "project_id": "providerkullanimi",
+    "storage_bucket": "providerkullanimi.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:184306668034:android:061f7a0f668bc916",
+        "android_client_info": {
+          "package_name": "emrealtunbilek.com.flutter_state"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "184306668034-78vh4ukat7cg03cnupl3i6pe8es65u00.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA9dcyKP8bhLcJtRvNSwi_jJknI6gfnYfs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "184306668034-78vh4ukat7cg03cnupl3i6pe8es65u00.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

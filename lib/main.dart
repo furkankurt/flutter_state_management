@@ -3,6 +3,8 @@ import 'package:flutter_state/provider_package_kullanimi.dart';
 import 'package:flutter_state/sayac.dart';
 import 'package:provider/provider.dart';
 
+import 'firebaseauth_provider.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -63,6 +65,14 @@ class _MyHomePageState extends State<MyHomePage> {
               },
               child: Text("Provider Package"),
               color: Colors.blue,
+            ),
+            RaisedButton(
+              onPressed: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => ProviderwithFirebaseAuth()));
+              },
+              child: Text("Provider Package FirebaseAuth"),
+              color: Colors.pink,
             ),
           ],
         ),
