@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "184306668034-go6f5n8pr489alt9cs75ipphh5k2qqj2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "emrealtunbilek.com.flutter_state",
+            "certificate_hash": "6efba55a11e19f7d66b1ee812648bb15704cb609"
+          }
+        },
+        {
           "client_id": "184306668034-78vh4ukat7cg03cnupl3i6pe8es65u00.apps.googleusercontent.com",
           "client_type": 3
         }

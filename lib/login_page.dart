@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_state/user_repository.dart';
+import 'package:provider/provider.dart';
 
 class LoginEkrani extends StatefulWidget {
   @override
@@ -21,7 +23,9 @@ class _LoginEkraniState extends State<LoginEkrani> {
 
   @override
   Widget build(BuildContext context) {
+    final userRepo = Provider.of<UserRepository>(context);
     return Scaffold(
+      key: _scaffoldKey,
       appBar: AppBar(
         title: Text("Login Ekran"),
       ),
@@ -61,12 +65,34 @@ class _LoginEkraniState extends State<LoginEkrani> {
                   ),
                 ),
               ),
+              userRepo.durum == UserDurumu.OturumAciliyor
+                  ? Center(
+                      child: CircularProgressIndicator(),
+                    )
+                  : Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: RaisedButton(
+                        onPressed: () async {
+                          if (_formKey.currentState.validate()) {
+                            if (!await userRepo.signIn(
+                                _email.text, _sifre.text)) {
+                              _scaffoldKey.currentState.showSnackBar(SnackBar(
+                                  content: Text("Email / Şifre Hatalı")));
+                            }
+                          }
+                        },
+                        color: Colors.green,
+                        child: Text("Giriş Yap"),
+                      ),
+                    ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: RaisedButton(
-                  onPressed: () {},
-                  color: Colors.green,
-                  child: Text("Giriş Yap"),
+                  onPressed: () async {
+                    userRepo.signWithGoogle();
+                  },
+                  color: Colors.red,
+                  child: Text("Gmail ile Giriş Yap"),
                 ),
               ),
             ],
