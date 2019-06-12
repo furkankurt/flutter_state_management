@@ -3,6 +3,7 @@ import 'package:flutter_state/provider_package_kullanimi.dart';
 import 'package:flutter_state/sayac.dart';
 import 'package:flutter_state/stream_kullanimi.dart';
 import 'package:provider/provider.dart';
+import 'bloc_kullanimi.dart';
 import 'firebaseauth_provider.dart';
 import 'user_repository.dart';
 
@@ -106,6 +107,14 @@ class _MyHomePageState extends State<MyHomePage> {
               },
               child: Text("Stream Kullanımı"),
               color: Colors.yellow,
+            ),
+            RaisedButton(
+              onPressed: () {
+                Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => BlocKullanimi()));
+              },
+              child: Text("Bloc Kullanımı"),
+              color: Colors.green,
             ),
           ],
         ),

@@ -14,6 +14,19 @@ class SayacBloc {
   final _sayacEventStreamController = StreamController<SayacEvent>();
   Stream<SayacEvent> get _sayacEventStream =>
       _sayacEventStreamController.stream;
-  StreamSink<SayacEvent> get _sayacEventSink =>
-      _sayacEventStreamController.sink;
+  StreamSink<SayacEvent> get sayacEventSink => _sayacEventStreamController.sink;
+
+  SayacBloc() {
+    _sayacEventStream.listen(_mapEventToState);
+  }
+
+  void _mapEventToState(SayacEvent event) {
+    if (event is ArttirmaEvent) {
+      _sayac++;
+    } else {
+      _sayac--;
+    }
+
+    _sayacStateSink.add(_sayac);
+  }
 }
