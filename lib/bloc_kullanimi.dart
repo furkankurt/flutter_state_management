@@ -15,6 +15,7 @@ class _BlocKullanimiState extends State<BlocKullanimi> {
 
   @override
   void dispose() {
+    _sayacBloc.dispose();
     super.dispose();
   }
 

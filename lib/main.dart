@@ -5,6 +5,7 @@ import 'package:flutter_state/stream_kullanimi.dart';
 import 'package:provider/provider.dart';
 import 'bloc_kullanimi.dart';
 import 'firebaseauth_provider.dart';
+import 'flutter_bloc_paket_kullanimi.dart';
 import 'user_repository.dart';
 
 void main() => runApp(MyApp());
@@ -115,6 +116,14 @@ class _MyHomePageState extends State<MyHomePage> {
               },
               child: Text("Bloc Kullanımı"),
               color: Colors.green,
+            ),
+            RaisedButton(
+              onPressed: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => FlutterBlocPaketKullanimi()));
+              },
+              child: Text("Flutter_Bloc Paket Kullanımı"),
+              color: Colors.teal,
             ),
           ],
         ),

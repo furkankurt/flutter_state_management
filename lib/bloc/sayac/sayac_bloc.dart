@@ -29,4 +29,9 @@ class SayacBloc {
 
     _sayacStateSink.add(_sayac);
   }
+
+  void dispose() {
+    _sayacEventStreamController.close();
+    _sayacStateStreamController.close();
+  }
 }
