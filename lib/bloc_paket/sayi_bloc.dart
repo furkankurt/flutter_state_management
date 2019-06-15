@@ -7,7 +7,21 @@ class SayiBloc extends Bloc<SayiEvent, SayiState> {
   SayiState get initialState => SayiState.initial();
 
   @override
-  Stream<SayiState> mapEventToState(SayiEvent event) {
-    return null;
+  Stream<SayiState> mapEventToState(SayiEvent event) async* {
+    final _currentState = currentState;
+
+    if (event is SayiArtirEvent) {
+      yield SayiState(sayi: _currentState.sayi + 1);
+    } else if (event is SayiAzaltEvent) {
+      yield SayiState(sayi: _currentState.sayi - 1);
+    }
+  }
+
+  void onArttir() {
+    dispatch(SayiArtirEvent());
+  }
+
+  void onAzalt() {
+    dispatch(SayiAzaltEvent());
   }
 }
